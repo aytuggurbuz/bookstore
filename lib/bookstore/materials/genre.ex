@@ -1,4 +1,5 @@
 defmodule Bookstore.Materials.Genre do
+  @derive Jason.Encoder
   @enforce_keys [:id, :name]
   defstruct [:id, :name]
 

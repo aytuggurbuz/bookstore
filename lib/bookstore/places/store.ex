@@ -1,4 +1,5 @@
 defmodule Bookstore.Places.Store do
+  @derive Jason.Encoder
   @enforce_keys [:id, :shelves, :clerks, :location]
   defstruct [:id, :shelves, :clerks, :location]
 

@@ -1,4 +1,5 @@
 defmodule Bookstore.People.Clerk do
+  @derive Jason.Encoder
   @enforce_keys [:id, :name, :age, :gender, :shelves]
   defstruct [:id, :name, :age, :gender, :shelves]
 

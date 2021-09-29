@@ -1,4 +1,5 @@
 defmodule Bookstore.People.Translator do
+  @derive Jason.Encoder
   @enforce_keys [:id, :name, :age, :gender, :languages]
   defstruct [:id, :name, :age, :gender, :languages]
 

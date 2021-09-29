@@ -4,12 +4,17 @@ defmodule Bookstore.Storage.Base do
       use Agent
 
       def start_link(_options) do
-        Agent.start_link(fn -> [] end, name: __MODULE__)
+        Agent.start_link(fn -> Bookstore.Storage.Persistence.load(__MODULE__) end, name: __MODULE__)
       end
 
       def add(resource) do
         Agent.update(__MODULE__, fn state ->
-          state ++ [resource]
+          content = state ++ [resource]
+
+          __MODULE__
+          |> Bookstore.Storage.Persistence.persist(content)
+
+          content
         end)
       end
 
