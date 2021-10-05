@@ -18,6 +18,14 @@ defmodule Bookstore.People do
     to: Author.Store,
     as: :get
 
+  defdelegate update_author(author, params),
+    to: Author.Store,
+    as: :update
+
+  defdelegate delete_author(id),
+    to: Author.Store,
+    as: :delete
+
   alias People.Clerk
   defdelegate new_clerk(params),
     to: Clerk,
@@ -35,6 +43,14 @@ defmodule Bookstore.People do
     to: Clerk.Store,
     as: :get
 
+  defdelegate update_clerk(clerk, params),
+    to: Clerk.Store,
+    as: :update
+
+  defdelegate delete_clerk(id),
+    to: Clerk.Store,
+    as: :delete
+
   alias People.Translator
   defdelegate new_translator(params),
     to: Translator,
@@ -51,4 +67,12 @@ defmodule Bookstore.People do
   defdelegate get_translator(id),
     to: Translator.Store,
     as: :get
+
+  defdelegate update_translator(translator, params),
+    to: Translator.Store,
+    as: :update
+
+  defdelegate delete_translator(id),
+    to: Translator.Store,
+    as: :delete
 end

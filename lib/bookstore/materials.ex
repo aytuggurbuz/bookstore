@@ -18,6 +18,14 @@ defmodule Bookstore.Materials do
     to: Book.Store,
     as: :get
 
+  defdelegate update_book(book, params),
+    to: Book.Store,
+    as: :update
+
+  defdelegate delete_book(id),
+    to: Book.Store,
+    as: :delete
+
   alias Materials.Genre
   defdelegate new_genre(params),
     to: Genre,
@@ -35,6 +43,14 @@ defmodule Bookstore.Materials do
     to: Genre.Store,
     as: :get
 
+  defdelegate update_genre(genre, params),
+    to: Genre.Store,
+    as: :update
+
+  defdelegate delete_genre(id),
+    to: Genre.Store,
+    as: :delete
+
   alias Materials.Publisher
   defdelegate new_publisher(params),
     to: Publisher,
@@ -51,4 +67,12 @@ defmodule Bookstore.Materials do
   defdelegate get_publisher(id),
     to: Publisher.Store,
     as: :get
+
+  defdelegate update_publisher(book, params),
+    to: Publisher.Store,
+    as: :update
+
+  defdelegate delete_publisher(id),
+    to: Publisher.Store,
+    as: :delete
 end

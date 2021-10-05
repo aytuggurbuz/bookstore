@@ -6,6 +6,7 @@ defmodule Bookstore.Materials.Genre do
   defmodule Store do
     use Bookstore.Storage.Base
   end
+
   def new(%{name: name}) do
     %__MODULE__{
       id: UUID.uuid4(),

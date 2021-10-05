@@ -6,6 +6,8 @@ defmodule Bookstore.Places.Store do
   defmodule Store do
     use Bookstore.Storage.Base
   end
+
+  alias Bookstore.Storage.Association
   def new(%{
         shelves: shelves,
         clerks: clerks,
@@ -13,8 +15,8 @@ defmodule Bookstore.Places.Store do
       }) do
     %__MODULE__{
       id: UUID.uuid4(),
-      shelves: shelves,
-      clerks: clerks,
+      shelves: Association.new(shelves),
+      clerks: Association.new(clerks),
       location: location
     }
   end

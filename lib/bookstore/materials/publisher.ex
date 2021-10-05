@@ -7,14 +7,16 @@ defmodule Bookstore.Materials.Publisher do
     use Bookstore.Storage.Base
   end
 
+  alias Bookstore.Storage.Association
+
   def new(%{
         name: name,
-        genres: genre
+        genres: genres
       }) do
     %__MODULE__{
       id: UUID.uuid4(),
       name: name,
-      genres: genre
+      genres: Association.new(genres)
     }
   end
 end

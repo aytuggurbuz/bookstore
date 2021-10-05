@@ -7,6 +7,7 @@ defmodule Bookstore.People.Clerk do
     use Bookstore.Storage.Base
   end
 
+  alias Bookstore.Storage.Association
   def new(%{
         name: name,
         age: age,
@@ -18,7 +19,7 @@ defmodule Bookstore.People.Clerk do
       name: name,
       age: age,
       gender: gender,
-      shelves: shelves
+      shelves: Association.new(shelves)
     }
   end
 end

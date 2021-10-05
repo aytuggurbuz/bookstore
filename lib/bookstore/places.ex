@@ -18,6 +18,14 @@ defmodule Bookstore.Places do
     to: Shelf.Store,
     as: :get
 
+  defdelegate update_shelf(shelf, params),
+    to: Shelf.Store,
+    as: :update
+
+  defdelegate delete_shelf(id),
+    to: Shelf.Store,
+    as: :delete
+
   alias Places.Store
   defdelegate new_store(params),
     to: Store,
@@ -34,4 +42,12 @@ defmodule Bookstore.Places do
   defdelegate get_store(id),
     to: Store.Store,
     as: :get
+
+  defdelegate update_store(book, params),
+    to: Store.Store,
+    as: :update
+
+  defdelegate delete_store(id),
+    to: Store.Store,
+    as: :delete
 end
