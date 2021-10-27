@@ -2,6 +2,7 @@ defmodule Bookstore.People do
   alias Bookstore.People
 
   alias People.Author
+
   defdelegate new_author(params),
     to: Author,
     as: :new
@@ -26,7 +27,12 @@ defmodule Bookstore.People do
     to: Author.Store,
     as: :delete
 
+  defdelegate search_author(query),
+    to: Author.Store,
+    as: :search
+
   alias People.Clerk
+
   defdelegate new_clerk(params),
     to: Clerk,
     as: :new
@@ -51,7 +57,12 @@ defmodule Bookstore.People do
     to: Clerk.Store,
     as: :delete
 
+  defdelegate search_clerk(query),
+    to: Clerk.Store,
+    as: :search
+
   alias People.Translator
+
   defdelegate new_translator(params),
     to: Translator,
     as: :new
@@ -75,4 +86,8 @@ defmodule Bookstore.People do
   defdelegate delete_translator(id),
     to: Translator.Store,
     as: :delete
+
+  defdelegate search_translator(query),
+    to: Translator.Store,
+    as: :search
 end

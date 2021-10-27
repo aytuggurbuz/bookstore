@@ -12,7 +12,8 @@ defmodule Bookstore.Application do
       Bookstore.People.Clerk.Store,
       Bookstore.People.Translator.Store,
       Bookstore.Places.Shelf.Store,
-      Bookstore.Places.Store.Store
+      Bookstore.Places.Store.Store,
+      {Plug.Cowboy, scheme: :http, plug: Bookstore.Router, port: 4040}
       # Starts a worker by calling: Skool.Worker.start_link(arg)
       # {Skool.Worker, arg}
     ]

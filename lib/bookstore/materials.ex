@@ -2,6 +2,7 @@ defmodule Bookstore.Materials do
   alias Bookstore.Materials
 
   alias Materials.Book
+
   defdelegate new_book(params),
     to: Book,
     as: :new
@@ -27,6 +28,7 @@ defmodule Bookstore.Materials do
     as: :delete
 
   alias Materials.Genre
+
   defdelegate new_genre(params),
     to: Genre,
     as: :new
@@ -51,7 +53,12 @@ defmodule Bookstore.Materials do
     to: Genre.Store,
     as: :delete
 
+  defdelegate search_genre(query),
+    to: Genre.Store,
+    as: :search
+
   alias Materials.Publisher
+
   defdelegate new_publisher(params),
     to: Publisher,
     as: :new
@@ -75,4 +82,8 @@ defmodule Bookstore.Materials do
   defdelegate delete_publisher(id),
     to: Publisher.Store,
     as: :delete
+
+  defdelegate search_publisher(query),
+    to: Publisher.Store,
+    as: :search
 end

@@ -2,6 +2,7 @@ defmodule Bookstore.Places do
   alias Bookstore.Places
 
   alias Places.Shelf
+
   defdelegate new_shelf(params),
     to: Shelf,
     as: :new
@@ -26,7 +27,12 @@ defmodule Bookstore.Places do
     to: Shelf.Store,
     as: :delete
 
+  defdelegate search_shelf(query),
+    to: Shelf.Store,
+    as: :search
+
   alias Places.Store
+
   defdelegate new_store(params),
     to: Store,
     as: :new
@@ -50,4 +56,8 @@ defmodule Bookstore.Places do
   defdelegate delete_store(id),
     to: Store.Store,
     as: :delete
+
+  defdelegate search_store(query),
+    to: Store.Store,
+    as: :search
 end
