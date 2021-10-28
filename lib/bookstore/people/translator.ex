@@ -6,6 +6,7 @@ defmodule Bookstore.People.Translator do
   defmodule Store do
     use Bookstore.Storage.Base
   end
+
   def new(%{
         name: name,
         age: age,

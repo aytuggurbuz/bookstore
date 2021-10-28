@@ -8,6 +8,7 @@ defmodule Bookstore.Materials.Book do
   end
 
   alias Bookstore.Storage.Association
+
   def new(%{
         name: name,
         author: author,
@@ -27,7 +28,7 @@ defmodule Bookstore.Materials.Book do
       price: price,
       pages: pages,
       language: language,
-      translator: Association.new(translator),
+      translator: Association.new(translator)
     }
   end
 end

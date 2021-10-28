@@ -8,6 +8,7 @@ defmodule Bookstore.Places.Shelf do
   end
 
   alias Bookstore.Storage.Association
+
   def new(%{
         genres: genres
       }) do

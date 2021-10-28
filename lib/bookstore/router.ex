@@ -1,12 +1,14 @@
 defmodule Bookstore.Router do
   use Plug.Router
 
-  plug :match
-  plug :dispatch
+  plug(:match)
 
+  plug(Plug.Parsers,
+    parsers: [:json],
+    json_decoder: Jason
+  )
 
-  plug Plug.Parsers, parsers: [:json],
-  json_decoder: Jason
+  plug(:dispatch)
 
   alias Bookstore.Materials
 
@@ -18,12 +20,11 @@ defmodule Bookstore.Router do
   end
 
   post "/genres" do
-    # to be implemented by aytug / game
-    {:ok, data, _conn} = read_body(conn)
-    IO.inspect(data, label: "The data")
-    IO.inspect(conn.body_params, label: "Params")
-    IO.inspect(conn, label: "Conn itself")
-    send_resp(conn, 200, "Got it #{data}")
+    Map.new(conn.body_params, fn {k, v} -> {String.to_atom(k), v} end)
+    |> Materials.new_genre()
+    |> Materials.add_genre()
+
+    send_resp(conn, 200, "Sucessfully added the genre!")
   end
 
   get "/books" do

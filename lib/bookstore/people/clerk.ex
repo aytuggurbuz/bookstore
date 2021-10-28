@@ -8,6 +8,7 @@ defmodule Bookstore.People.Clerk do
   end
 
   alias Bookstore.Storage.Association
+
   def new(%{
         name: name,
         age: age,
