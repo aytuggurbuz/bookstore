@@ -27,6 +27,10 @@ defmodule Bookstore.Materials do
     to: Book.Store,
     as: :delete
 
+  defdelegate search_book(query),
+    to: Book.Store,
+    as: :search
+
   alias Materials.Genre
 
   defdelegate new_genre(params),
